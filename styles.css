@@ -195,3 +195,79 @@ a:hover {
     color: #007BFF;
     transition: color 0.3s ease;
 }
+
+/* Basic Styling - Add more as needed */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light Gray Background */
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.contact-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.btn {
+    background-color: #007bff; /* Blue */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0062cc; /* Darker Blue on Hover */
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #25D366; /* WhatsApp Green */
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px; 
+}
+
+.whatsapp-btn img {
+    width: 20px;
+    margin-right: 5px;
+}
+
