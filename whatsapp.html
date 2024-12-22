@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Moving WhatsApp Button</title>
+  <style>
+    /* CSS for styling the button */
+    #whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #25D366; /* WhatsApp green */
+      color: white;
+      text-align: center;
+      line-height: 60px;
+      font-size: 30px;
+      cursor: pointer;
+      z-index: 999; /* Ensure button stays on top */
+    }
+  </style>
+</head>
+<body>
+
+  <a href="https://wa.me/yourphonenumber" id="whatsapp-button">
+    <i class="fa fa-whatsapp"></i> 
+  </a>
+
+  <script>
+    // JavaScript for button movement
+    const button = document.getElementById('whatsapp-button');
+
+    function moveButton() {
+      const x = Math.floor(Math.random() * window.innerWidth - 60); // Random x position
+      const y = Math.floor(Math.random() * window.innerHeight - 60); // Random y position
+      button.style.left = x + 'px';
+      button.style.top = y + 'px';
+    }
+
+    setInterval(moveButton, 1000); // Move button every 1 second
+  </script>
+
+</body>
+</html>
