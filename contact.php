@@ -1,33 +1,28 @@
+
 <?php
-// Database configuration - default XAMPP settings
-$servername = "localhost";
-$username = "root";
-$password = ""; // Default is empty for XAMPP
-$dbname = "ibadtech_db"; // Change this to your database name
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully";
-
-// If the form is submitted, save data to the database
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $conn->real_escape_string($_POST["name"]);
-    $email = $conn->real_escape_string($_POST["email"]);
-    $message = $conn->real_escape_string($_POST["message"]);
+    // Collect form data
+    $name = htmlspecialchars(trim($_POST['name']));
+    $email = htmlspecialchars(trim($_POST['email']));
+    $message = htmlspecialchars(trim($_POST['message']));
 
-    $sql = "INSERT INTO contacts (name, email, message) VALUES ('$name', '$email', '$message')";
+    // Validate email
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Invalid email format";
+        exit;
+    }
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Message saved successfully!";
+    // Email details
+    $to = "sainsanty2@gmail.com";
+    $subject = "Contact Form Submission from $name";
+    $body = "Name: $name\nEmail: $email\n\nMessage:\n$message";
+    $headers = "From: $email";
+
+    // Send email
+    if (mail($to, $subject, $body, $headers)) {
+        echo "Message sent successfully!";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Failed to send message.";
     }
 }
-
-$conn->close();
 ?>
