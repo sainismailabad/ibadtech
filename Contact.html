@@ -1,17 +1,18 @@
-<<!DOCTYPE html> 
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ibad Tech - Contact</title>
-    <link rel="stylesheet" href="styles.css"> 
+    <title>Contact Us • Ibad Tech</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-
-    <header class="header"> 
-        <div class="container"> 
-            <a href="#">
-                <img src="Logo.jpg" alt="Ibad Tech Logo" class="logo">
+    <header class="header">
+        <div class="container">
+            <a href="index.html">
+                <img src="Logo.jpg" alt="Ibad Tech Logo" class="logo"> 
             </a>
             <div class="header-text">
                 <h1>Ibad Tech</h1>
@@ -22,46 +23,39 @@
 
     <nav class="navbar">
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html">Services</a></li>
-            <li><a href="index.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="https://sales.gromo.in/iv?token=fUcH6NT1ZXcOXLib8y3KohdMxvBNrxPSh9LMTTTsqZO8jWNY3iKrQZi6gmCc%2FoKvl6QcYEUttrKM%2FOmpUuUaemceaUz2Zm7FVqpAcQ%2F0mFhRU8AxvYNPQdTKpJTk4AAt" class="check">Check Challan</a></li>
         </ul>
     </nav>
 
     <main>
-        <section class="contact-form">
+        <section class="contact">
             <h2>Contact Us</h2>
-            <form action="contact.php" method="post">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
+            <p><strong>Address:</strong> Kathgarh Road, Ismailabad, Kurukshetra, Haryana, 136129</p>
+            <p><strong>Phone:</strong> <a href="tel:+917056836166">+91 7056836166</a></p>
+            <p><strong>Email:</strong> <a href="mailto:sainsanty2@gmail.com">sainsanty2@gmail.com</a></p>
+                <form action="process_contact.php" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
 
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
 
-                <div class="form-group">
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="5" cols="30" required></textarea><br><br>
 
-                <button type="submit" class="btn">Send Message</button>
-            </form>
-            <a href="https://api.whatsapp.com/send?phone=+917056836166&text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." 
-               target="_blank" 
-               class="whatsapp-btn">
-                <img src="whatsapp-icon.png" alt="WhatsApp Icon"> 
-                <span>Chat on WhatsApp</span>
-            </a>
+        <input type="submit" value="Submit" class="button">
+    </form>
         </section>
     </main>
+     <a href="https://wa.me/7056836166" class="whatsapp-button" target="_blank">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+</a>
 
     <footer class="footer">
         <p>&copy; 2024 Ibad Tech. All Rights Reserved.</p>
     </footer>
-
 </body>
 </html>
