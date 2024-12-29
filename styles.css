@@ -250,3 +250,26 @@ a.check:hover {
     color: #c70039;
     text-decoration: underline;
 }
+
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    text-decoration: none;
+    z-index: 1000;
+}
+
+.whatsapp-icon {
+    width: 30px;
+    height: 30px;
+}
