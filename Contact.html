@@ -1,61 +1,290 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us • Ibad Tech</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ibad Tech - Contact</title>
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    (function () {
+      emailjs.init("m3gD2ef27h4eSPrAU"); // Your EmailJS Public Key
+    })();
+  </script>
+
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #ff6f61, #ff9671);
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .logo {
+      width: 60px;
+      height: auto;
+    }
+
+    .header-text h1 {
+      font-size: 2.5rem;
+      margin-top: 10px;
+    }
+
+    .navbar {
+      background: #ff9671;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    .navbar ul {
+      display: inline-flex;
+      list-style: none;
+    }
+
+    .navbar li {
+      margin: 0 15px;
+    }
+
+    .navbar a {
+      color: #fff;
+      font-weight: bold;
+      font-size: 1rem;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      color: #222;
+    }
+
+    .contact-form {
+      background-color: #fff;
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .contact-form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ff6f61;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      background-color: #ff6f61;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #e4574f;
+    }
+
+    #successMessage {
+      display: none;
+      color: green;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 15px;
+      animation: fadeInUp 0.6s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      color: #fff;
+      background-color: #25D366;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+
+    .whatsapp-btn img {
+      width: 20px;
+      margin-right: 5px;
+    }
+
+    .footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 12px 0;
+      font-size: 0.9rem;
+      margin-top: 50px;
+    }
+  </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <a href="index.html">
-                <img src="Logo.jpg" alt="Ibad Tech Logo" class="logo"> 
-            </a>
-            <div class="header-text">
-                <h1>Ibad Tech</h1>
-                <p>Digital Marketing | Graphic Design | Web Design | IT Services</p>
-            </div>
-        </div>
-    </header>
 
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html#services">Services</a></li>
-            <li><a href="index.html#about">About Us</a></li>
-            <li><a href="Contact.html">Contact</a></li>
-            <li><a href="https://sales.gromo.in/iv?token=fUcH6NT1ZXcOXLib8y3KohdMxvBNrxPSh9LMTTTsqZO8jWNY3iKrQZi6gmCc%2FoKvl6QcYEUttrKM%2FOmpUuUaemceaUz2Zm7FVqpAcQ%2F0mFhRU8AxvYNPQdTKpJTk4AAt" class="check">Check Challan</a></li>
-        </ul>
-    </nav>
+  <!-- Header -->
+  <header class="header">
+    <a href="#"><img src="Logo.jpg" alt="Ibad Tech Logo" class="logo"></a>
+    <div class="header-text">
+      <h1>Ibad Tech</h1>
+      <p>Digital Marketing | Graphic Design | Web Design | IT Services</p>
+    </div>
+  </header>
 
-    <main>
-        <section class="contact">
-            <h2>Contact Us</h2>
-            <p><strong>Address:</strong> Kathgarh Road, Ismailabad, Kurukshetra, Haryana, 136129</p>
-            <p><strong>Phone:</strong> <a href="tel:+917056836166">+91 7056836166</a></p>
-            <p><strong>Email:</strong> <a href="mailto:sainsanty2@gmail.com">sainsanty2@gmail.com</a></p>
-                <form action="process_contact.php" method="post">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html">Services</a></li>
+      <li><a href="index.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contact Form -->
+  <section class="contact-form">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <div class="form-group">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
+        <input type="text" name="name" id="name" required />
+      </div>
 
+      <div class="form-group">
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
+        <input type="email" name="email" id="email" required />
+      </div>
 
-        <label for="message">Message:</label><br>
-        <textarea id="message" name="message" rows="5" cols="30" required></textarea><br><br>
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea name="message" id="message" rows="5" required></textarea>
+      </div>
 
-        <input type="submit" value="Submit" class="button">
+      <button type="submit" class="btn">Send Message</button>
     </form>
-        </section>
-    </main>
-     <a href="https://wa.me/7056836166" class="whatsapp-button" target="_blank">
-    <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
-</a>
 
-    <footer class="footer">
-        <p>&copy; 2024 Ibad Tech. All Rights Reserved.</p>
-    </footer>
+    <p id="successMessage">✅ Message sent! Our team will contact you shortly. If urgent, call or WhatsApp us at <strong>+91 7056836166</strong>.</p>
+
+    <a href="https://api.whatsapp.com/send?phone=+917056836166" target="_blank" class="whatsapp-btn">
+      <img src="whatsapp-icon.png" alt="WhatsApp Icon" />
+      <span>Chat on WhatsApp</span>
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Ibad Tech. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Firebase + EmailJS -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCfBmA6mq8OgsWbkz7Jh7vdR6uoxPnRL6k",
+      authDomain: "ibadtech.firebaseapp.com",
+      databaseURL: "https://ibadtech-default-rtdb.firebaseio.com",
+      projectId: "ibadtech",
+      storageBucket: "ibadtech.firebasestorage.app",
+      messagingSenderId: "254898827052",
+      appId: "1:254898827052:web:acc0976a32aecef221c689"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    const form = document.getElementById("contactForm");
+    const successMsg = document.getElementById("successMessage");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      if (!name || !email || !message) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      try {
+        // Save to Firebase
+        await push(ref(database, "contacts"), {
+          name,
+          email,
+          message,
+          createdAt: Date.now()
+        });
+
+        // Send email via EmailJS
+        await emailjs.send("service_uyhz1vs", "template_s0udci5", {
+          name,
+          email,
+          message
+        });
+
+        successMsg.style.display = "block";
+        successMsg.style.animation = "fadeInUp 0.6s ease forwards";
+        form.reset();
+
+        setTimeout(() => {
+          successMsg.style.display = "none";
+        }, 5000);
+      } catch (err) {
+        console.error("Error:", err);
+        alert("❌ Something went wrong. Please try again.");
+      }
+    });
+  </script>
+
 </body>
 </html>
