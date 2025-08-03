@@ -14,157 +14,47 @@
   </script>
 
   <style>
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background-color: #f4f4f4; color: #333; }
+    .header { background: linear-gradient(135deg, #ff6f61, #ff9671); color: #fff; padding: 20px 0; text-align: center; }
+    .logo { width: 60px; height: auto; }
+    .header-text h1 { font-size: 2.5rem; margin-top: 10px; }
+    .navbar { background: #ff9671; padding: 10px 0; text-align: center; }
+    .navbar ul { display: inline-flex; list-style: none; }
+    .navbar li { margin: 0 15px; }
+    .navbar a { color: #fff; font-weight: bold; font-size: 1rem; text-decoration: none; }
+    .navbar a:hover { color: #222; }
+    .contact-form { background-color: #fff; max-width: 500px; margin: 40px auto; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .contact-form h2 { text-align: center; margin-bottom: 20px; color: #ff6f61; }
+    .form-group { margin-bottom: 20px; }
+    label { display: block; font-weight: bold; margin-bottom: 5px; }
+    input[type="text"], input[type="email"], input[type="tel"], select {
+      width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;
     }
+    .btn { display: block; width: 100%; background-color: #ff6f61; color: white; padding: 12px; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer; transition: background 0.3s ease; }
+    .btn:hover { background-color: #e4574f; }
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-
-    .header {
-      background: linear-gradient(135deg, #ff6f61, #ff9671);
-      color: #fff;
-      padding: 20px 0;
-      text-align: center;
-    }
-
-    .logo {
-      width: 60px;
-      height: auto;
-    }
-
-    .header-text h1 {
-      font-size: 2.5rem;
-      margin-top: 10px;
-    }
-
-    .navbar {
-      background: #ff9671;
-      padding: 10px 0;
-      text-align: center;
-    }
-
-    .navbar ul {
-      display: inline-flex;
-      list-style: none;
-    }
-
-    .navbar li {
-      margin: 0 15px;
-    }
-
-    .navbar a {
-      color: #fff;
-      font-weight: bold;
-      font-size: 1rem;
-      text-decoration: none;
-    }
-
-    .navbar a:hover {
-      color: #222;
-    }
-
-    .contact-form {
-      background-color: #fff;
-      max-width: 500px;
-      margin: 40px auto;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .contact-form h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #ff6f61;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    textarea {
-      resize: vertical;
-    }
-
-    .btn {
-      display: block;
-      width: 100%;
-      background-color: #ff6f61;
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: 4px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: #e4574f;
-    }
-
-    #successMessage {
+    /* Loader CSS */
+    .loader {
       display: none;
-      color: green;
-      font-weight: bold;
-      text-align: center;
-      margin-top: 15px;
-      animation: fadeInUp 0.6s ease forwards;
-      opacity: 0;
-      transform: translateY(20px);
+      margin: 10px auto;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #ff6f61;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
     }
 
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+    #successMessage { display: none; color: green; font-weight: bold; text-align: center; margin-top: 15px; animation: fadeInUp 0.6s ease forwards; opacity: 0; transform: translateY(20px); }
+    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
 
-    .whatsapp-btn {
-      display: inline-flex;
-      align-items: center;
-      text-decoration: none;
-      color: #fff;
-      background-color: #25D366;
-      padding: 10px 20px;
-      border-radius: 5px;
-      margin-top: 20px;
-      justify-content: center;
-    }
-
-    .whatsapp-btn img {
-      width: 20px;
-      margin-right: 5px;
-    }
-
-    .footer {
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      padding: 12px 0;
-      font-size: 0.9rem;
-      margin-top: 50px;
-    }
+    .whatsapp-btn { display: inline-flex; align-items: center; text-decoration: none; color: #fff; background-color: #25D366; padding: 10px 20px; border-radius: 5px; margin-top: 20px; justify-content: center; }
+    .whatsapp-btn img { width: 20px; margin-right: 5px; }
+    .footer { background-color: #333; color: #fff; text-align: center; padding: 12px 0; font-size: 0.9rem; margin-top: 50px; }
   </style>
 </head>
 <body>
@@ -203,14 +93,26 @@
       </div>
 
       <div class="form-group">
-        <label for="message">Message:</label>
-        <textarea name="message" id="message" rows="5" required></textarea>
+        <label for="phone">Phone (with country code):</label>
+        <input type="tel" name="phone" id="phone" placeholder="+91XXXXXXXXXX" required />
+      </div>
+
+      <div class="form-group">
+        <label for="service">Select Service:</label>
+        <select name="service" id="service" required>
+          <option value="">-- Select Service --</option>
+          <option value="Graphic Designing">Graphic Designing</option>
+          <option value="Digital Marketing">Digital Marketing</option>
+          <option value="Web Development">Web Development</option>
+          <option value="App Development">App Development</option>
+        </select>
       </div>
 
       <button type="submit" class="btn">Send Message</button>
+      <div class="loader" id="loader"></div>
     </form>
 
-    <p id="successMessage">✅ Message sent! Our team will contact you shortly. If urgent, call or WhatsApp us at <strong>+91 7056836166</strong>.</p>
+    <p id="successMessage">✅ Message sent! Our team will contact you shortly.</p>
 
     <a href="https://api.whatsapp.com/send?phone=+917056836166" target="_blank" class="whatsapp-btn">
       <img src="whatsapp-icon.png" alt="WhatsApp Icon" />
@@ -243,25 +145,30 @@
 
     const form = document.getElementById("contactForm");
     const successMsg = document.getElementById("successMessage");
+    const loader = document.getElementById("loader");
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
       const name = form.name.value.trim();
       const email = form.email.value.trim();
-      const message = form.message.value.trim();
+      const phone = form.phone.value.trim();
+      const service = form.service.value;
 
-      if (!name || !email || !message) {
+      if (!name || !email || !phone || !service) {
         alert("Please fill in all fields.");
         return;
       }
+
+      loader.style.display = "block"; // Loader दिखाएं
 
       try {
         // Save to Firebase
         await push(ref(database, "contacts"), {
           name,
           email,
-          message,
+          phone,
+          service,
           createdAt: Date.now()
         });
 
@@ -269,22 +176,21 @@
         await emailjs.send("service_uyhz1vs", "template_s0udci5", {
           name,
           email,
-          message
+          message: `Phone: ${phone}\nService: ${service}`
         });
 
+        loader.style.display = "none"; // Loader छिपाएं
         successMsg.style.display = "block";
         successMsg.style.animation = "fadeInUp 0.6s ease forwards";
         form.reset();
 
-        setTimeout(() => {
-          successMsg.style.display = "none";
-        }, 5000);
+        setTimeout(() => { successMsg.style.display = "none"; }, 5000);
       } catch (err) {
+        loader.style.display = "none";
         console.error("Error:", err);
         alert("❌ Something went wrong. Please try again.");
       }
     });
   </script>
-
 </body>
 </html>
