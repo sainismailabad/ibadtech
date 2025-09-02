@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ibad Tech - Contact</title>
+  <title>Ibad Tech - Contact Us</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,14 +12,6 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <script>
-    (function () {
-      emailjs.init("m3gD2ef27h4eSPrAU"); // Your EmailJS Public Key
-    })();
-  </script>
 
   <style>
     /* Reset and Base Styles */
@@ -594,7 +586,7 @@
   <header class="header">
     <div class="container">
       <a href="index.html">
-        <img src="Logo.jpg" alt="Ibad Tech Logo" class="logo" />
+        <img src="https://sainismailabad.github.io/ibadtech/Logo.jpg" alt="Ibad Tech Logo" class="logo" />
       </a>
       <div class="header-text">
         <h1 class="ibad">Ibad Tech</h1>
@@ -734,71 +726,47 @@
     <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp" class="whatsapp-icon" />
   </a>
 
-  <!-- Firebase + EmailJS -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+  <script>
+    // Form submission handling
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contactForm');
+      const successMsg = document.getElementById('successMessage');
+      const loader = document.getElementById('loader');
+      
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const phone = form.phone.value.trim();
+        const service = form.service.value;
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyCfBmA6mq8OgsWbkz7Jh7vdR6uoxPnRL6k",
-      authDomain: "ibadtech.firebaseapp.com",
-      databaseURL: "https://ibadtech-default-rtdb.firebaseio.com",
-      projectId: "ibadtech",
-      storageBucket: "ibadtech.firebasestorage.app",
-      messagingSenderId: "254898827052",
-      appId: "1:254898827052:web:acc0976a32aecef221c689"
-    };
+        if (!name || !email || !phone || !service) {
+          alert("Please fill in all fields.");
+          return;
+        }
 
-    const app = initializeApp(firebaseConfig);
-    const database = getDatabase(app);
-
-    const form = document.getElementById("contactForm");
-    const successMsg = document.getElementById("successMessage");
-    const loader = document.getElementById("loader");
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const name = form.name.value.trim();
-      const email = form.email.value.trim();
-      const phone = form.phone.value.trim();
-      const service = form.service.value;
-
-      if (!name || !email || !phone || !service) {
-        alert("Please fill in all fields.");
-        return;
-      }
-
-      loader.style.display = "block";
-
-      try {
-        // Save to Firebase
-        await push(ref(database, "contacts"), {
-          name,
-          email,
-          phone,
-          service,
-          createdAt: Date.now()
-        });
-
-        // Send email via EmailJS
-        await emailjs.send("service_uyhz1vs", "template_s0udci5", {
-          name,
-          email,
-          message: `Phone: ${phone}\nService: ${service}`
-        });
-
-        loader.style.display = "none";
-        successMsg.style.display = "block";
-        successMsg.style.animation = "fadeInUp 0.6s ease forwards";
-        form.reset();
-
-        setTimeout(() => { successMsg.style.display = "none"; }, 5000);
-      } catch (err) {
-        loader.style.display = "none";
-        console.error("Error:", err);
-        alert("❌ Something went wrong. Please try again.");
-      }
+        // Show loader
+        loader.style.display = 'block';
+        
+        // Simulate form submission (replace with your actual form handling)
+        setTimeout(function() {
+          // Hide loader
+          loader.style.display = 'none';
+          
+          // Show success message
+          successMsg.style.display = 'block';
+          successMsg.style.animation = 'fadeInUp 0.6s ease forwards';
+          
+          // Reset form
+          form.reset();
+          
+          // Hide success message after 5 seconds
+          setTimeout(function() {
+            successMsg.style.display = 'none';
+          }, 5000);
+        }, 2000);
+      });
     });
   </script>
 </body>
