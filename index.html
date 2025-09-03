@@ -5,21 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ibad Tech | Digital Marketing | Web Development | Graphic Design</title>
 
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Ibad Tech offers Digital Marketing, Graphic Design, Web & App Development, and IT Services. Based in Kurukshetra, Haryana." />
-  <meta name="keywords" content="Ibad Tech, Digital Marketing, Graphic Design, Web Development, App Development, IT Services, Kurukshetra, Haryana, India" />
-  <meta name="author" content="Ibad Tech" />
-
-  <!-- Open Graph (for social media sharing) -->
-  <meta property="og:title" content="Ibad Tech | Digital Marketing, Web & App Services" />
-  <meta property="og:description" content="Explore expert digital marketing, graphic design, and modern website development services by Ibad Tech." />
-  <meta property="og:image" content="https://sainismailabad.github.io/ibadtech/Logo.jpg" />
-  <meta property="og:url" content="https://sainismailabad.github.io/ibadtech/" />
-  <meta property="og:type" content="website" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="Logo.jpg" type="image/jpeg" />
-
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -311,6 +296,89 @@
       animation: fadeIn 1.5s ease;
     }
 
+    /* Digital Marketing Full Screen Section */
+    .digital-marketing-full {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .dm-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+      z-index: -1;
+      transform: scale(1.1);
+      transition: transform 10s ease;
+    }
+
+    .digital-marketing-full:hover .dm-bg {
+      transform: scale(1);
+    }
+
+    .dm-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.4) 100%);
+      z-index: -1;
+    }
+
+    .dm-content {
+      max-width: 600px;
+      color: white;
+      padding: 0 20px;
+      margin-left: 10%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .dm-content h2 {
+      font-size: 3.5rem;
+      text-align: left;
+      margin-bottom: 30px;
+      color: white;
+    }
+
+    .dm-content h2:after {
+      margin: 15px 0 0;
+    }
+
+    .dm-content p {
+      font-size: 1.3rem;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+
+    .dm-stats {
+      display: flex;
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .stat-text {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
     /* Services Section */
     .services {
       background: white;
@@ -579,6 +647,14 @@
       .hero h1 {
         font-size: 3rem;
       }
+      
+      .dm-content {
+        margin-left: 5%;
+      }
+      
+      .dm-content h2 {
+        font-size: 2.8rem;
+      }
     }
 
     @media (max-width: 768px) {
@@ -625,6 +701,24 @@
       .service-container {
         grid-template-columns: 1fr;
       }
+      
+      .dm-content {
+        text-align: center;
+        margin: 0 auto;
+      }
+      
+      .dm-content h2 {
+        text-align: center;
+      }
+      
+      .dm-content h2:after {
+        margin: 15px auto 0;
+      }
+      
+      .dm-stats {
+        flex-direction: column;
+        gap: 20px;
+      }
     }
   </style>
 </head>
@@ -634,7 +728,7 @@
   <header class="header">
     <div class="container">
       <a href="#">
-        <img src="Logo.jpg" alt="Ibad Tech Logo" class="logo" />
+        <img src="https://sainismailabad.github.io/ibadtech/Logo.jpg" alt="Ibad Tech Logo" class="logo" />
       </a>
       <div class="header-text">
         <h1 class="ibad">Ibad Tech</h1>
@@ -651,7 +745,7 @@
         <li><a href="#services">Services</a></li>
         <li><a href="https://www.instagram.com/ibad_tech?igsh=OW5rNzc0dmE3a2t4" target="_blank">Portfolio</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="https://sainismailabad.github.io/ibadtech/Contact.html">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
         <li><a href="https://sainismailabad.github.io/Social-media-growth-/" target="_blank" class="check">Social Media Growth</a></li>
       </ul>
     </div>
@@ -663,8 +757,34 @@
       <h1>Transform Your Digital Presence</h1>
       <p>We provide innovative digital solutions to help businesses grow and thrive in the modern digital landscape.</p>
       <div class="hero-buttons">
-        <a href="https://sainismailabad.github.io/ibadtech/Contact.html" class="btn">Get Started</a>
+        <a href="contact.html" class="btn">Get Started</a>
         <a href="#services" class="btn btn-outline">Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Digital Marketing Full Screen Section -->
+  <section class="digital-marketing-full">
+    <div class="dm-bg"></div>
+    <div class="dm-overlay"></div>
+    <div class="dm-content">
+      <h2>Digital Marketing</h2>
+      <p>Boost your business with our advanced marketing strategies including SEO, social media marketing, and PPC campaigns. We create data-driven strategies that deliver measurable results.</p>
+      <a href="#contact" class="btn">Start Your Campaign</a>
+      
+      <div class="dm-stats">
+        <div class="stat-item">
+          <div class="stat-number">200%</div>
+          <div class="stat-text">Average ROI Increase</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">150+</div>
+          <div class="stat-text">Clients Served</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">95%</div>
+          <div class="stat-text">Client Satisfaction</div>
+        </div>
       </div>
     </div>
   </section>
@@ -676,34 +796,34 @@
       <div class="service-container">
 
         <div class="service-card card-3d">
-          <img src="digital-marketing-image.png" alt="Digital Marketing" class="service-image" />
+          <img src="https://cdn-icons-png.flaticon.com/512/1006/1006363.png" alt="Digital Marketing" class="service-image" />
           <h3>Digital Marketing</h3>
           <p>Boost your business with our advanced marketing strategies including SEO, social media marketing, and PPC campaigns.</p>
         </div>
 
         <a href="https://www.behance.net/78f58aea" target="_blank" style="text-decoration: none; color: inherit;">
           <div class="service-card card-3d">
-            <img src="Graphic.jpg" alt="Graphic Design" class="service-image" />
+            <img src="https://cdn-icons-png.flaticon.com/512/1006/1006373.png" alt="Graphic Design" class="service-image" />
             <h3>Graphic Design</h3>
             <p>Creative designs tailored to your brand including logos, brochures, social media graphics, and more.</p>
           </div>
         </a>
 
         <div class="service-card card-3d">
-          <img src="Web degain.jpg" alt="Web Design" class="service-image" />
+          <img src="https://cdn-icons-png.flaticon.com/512/1006/1006365.png" alt="Web Design" class="service-image" />
           <h3>Web Development</h3>
           <p>Modern, responsive, and user-friendly websites built with the latest technologies to enhance your online presence.</p>
         </div>
 
         <div class="service-card card-3d">
-          <img src="It services.jpg" alt="App Development" class="service-image" />
+          <img src="https://cdn-icons-png.flaticon.com/512/1006/1006371.png" alt="App Development" class="service-image" />
           <h3>App Development</h3>
           <p>Build fast, scalable mobile applications for Android and iOS that deliver exceptional user experiences.</p>
         </div>
 
         <a href="https://sales.gromo.in/gp-website/g/w-eoAMuF4UKkEwDg3M-uD" target="_blank" style="text-decoration: none; color: inherit;">
           <div class="service-card card-3d">
-            <img src="Cl.png" alt="Financial Products" class="service-image" />
+            <img src="https://cdn-icons-png.flaticon.com/512/1006/1006367.png" alt="Financial Products" class="service-image" />
             <h3>Financial Products</h3>
             <p>Apply for credit cards, savings accounts, demat accounts, personal loans, and investment opportunities.</p>
           </div>
@@ -739,10 +859,10 @@
             Our mission is to empower businesses with cutting-edge digital solutions that drive growth, 
             enhance visibility, and maximize return on investment.
           </p>
-          <a href="https://sainismailabad.github.io/ibadtech/Contact.html" class="btn">Get In Touch</a>
+          <a href="contact.html" class="btn">Get In Touch</a>
         </div>
         <div class="about-image-container">
-          <img src="About us.jpg" alt="About Ibad Tech" class="about-image" />
+          <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&auto=format&fit=crop&w=1332&q=80" alt="About Ibad Tech" class="about-image" />
         </div>
       </div>
     </div>
@@ -806,6 +926,5 @@
       hero.style.backgroundPositionY = -(scrolled * 0.2) + 'px';
     });
   </script>
-
 </body>
 </html>
